@@ -1,6 +1,6 @@
 {
   "name": "putrabot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🤖 A fun and multi-purpose Discord Bot made with ❤",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "discord.js": "^12.5.1",
     "discord.js-commando": "github:discordjs/Commando",
     "dotenv": "^8.2.0",
-    "pretty-ms": "^7.0.1"
+    "pretty-ms": "^7.0.1",
+    "superagent": "^6.1.0"
   }
 }

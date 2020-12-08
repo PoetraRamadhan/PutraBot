@@ -10,6 +10,7 @@ const client = new CommandoClient({
     commandPrefix: prefix,
     owner: [ownerId],
     disableMentions: 'everyone',
+    unknownCommandResponse: false,
     messageSweepInterval: 180,
     messageCacheLifetime: 180,
     messageCacheMaxSize: 200,
@@ -25,7 +26,8 @@ client.registry
         ['music', 'Music Commands'],
         ['moderation', 'Moderation Commands'],
         ['configuration', 'Configuration Commands'],
-        ['fun', 'Fun Commands'],
+        ['image', 'Image Commands'],
+        ['action', 'Action Commands']
     ])
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
