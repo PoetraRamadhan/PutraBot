@@ -27,7 +27,8 @@ client.registry
         ['moderation', 'Moderation Commands'],
         ['configuration', 'Configuration Commands'],
         ['image', 'Image Commands'],
-        ['action', 'Action Commands']
+        ['action', 'Action Commands'],
+        ['miscellaneous', 'Miscellaneous Commands']
     ])
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
