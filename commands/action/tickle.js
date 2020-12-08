@@ -2,19 +2,19 @@ const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
 const { get } = require('superagent');
 
-module.exports = class KissCommand extends Command {
+module.exports = class TickleCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'kiss',
-            memberName: 'kiss',
+            name: 'tickle',
+            memberName: 'tickle',
             group: 'action',
-            description: 'Give your special one a kiss!',
-            examples: ['kiss [@user/ID]'],
+            description: 'Tickle your friends!',
+            examples: ['tickle [@user/ID]'],
             guildOnly: true,
             args: [
                 {
                     key: 'user',
-                    prompt: 'Which user you want to kiss?',
+                    prompt: 'Which user you want to tickle?',
                     type: 'user',
                     default: ''
                 }
@@ -23,17 +23,17 @@ module.exports = class KissCommand extends Command {
     }
 
     async run(message, { user }) {
-        const res = await get('https://nekos.life/api/v2/img/kiss');
+        const res = await get('https://nekos.life/api/v2/img/tickle');
         if(!user) {
-            const lonelyEmbed = new MessageEmbed()
-            .setAuthor('You\'re kissing yourself?')
-            .setImage(res.body.url)
-            .setColor('RANDOM')
-            .setFooter('Powered by nekos.life')
-            return message.embed(lonelyEmbed);
+           const lonelyEmbed = new MessageEmbed()
+           .setAuthor('Tickle, tickle!')
+           .setImage(res.body.url)
+           .setColor('RANDOM')
+           .setFooter('Powered by nekos.life')
+           return message.embed(lonelyEmbed);
         } else {
             const embed = new MessageEmbed()
-            .setAuthor(`${message.author.tag} just kissed ${user.tag}! ///`)
+            .setAuthor(`${user.tag} just got tickled by ${message.author.tag}`)
             .setImage(res.body.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')

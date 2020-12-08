@@ -2,38 +2,37 @@ const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
 const { get } = require('superagent');
 
-module.exports = class KissCommand extends Command {
+module.exports = class SlapCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'kiss',
-            memberName: 'kiss',
+            name: 'slap',
+            memberName: 'slap',
             group: 'action',
-            description: 'Give your special one a kiss!',
-            examples: ['kiss [@user/ID]'],
+            description: 'Slap your friends, but please be gently',
             guildOnly: true,
             args: [
                 {
                     key: 'user',
-                    prompt: 'Which user you want to kiss?',
+                    prompt: 'Which user would you like to slap?',
                     type: 'user',
                     default: ''
                 }
             ]
         });
     }
-
+    
     async run(message, { user }) {
-        const res = await get('https://nekos.life/api/v2/img/kiss');
+        const res = await get('https://nekos.life/api/v2/img/slap');
         if(!user) {
             const lonelyEmbed = new MessageEmbed()
-            .setAuthor('You\'re kissing yourself?')
+            .setAuthor('Why are you slapping yourself?')
             .setImage(res.body.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(lonelyEmbed);
         } else {
             const embed = new MessageEmbed()
-            .setAuthor(`${message.author.tag} just kissed ${user.tag}! ///`)
+            .setAuthor(`${user.tag} just got slapped by ${message.author.tag}`)
             .setImage(res.body.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
