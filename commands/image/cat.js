@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
 
 module.exports = class CatCommand extends Command {
     constructor(client) {
@@ -14,10 +13,11 @@ module.exports = class CatCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/img/meow');
+        const res = await this.client.neko.sfw.meow();
+
         const embed = new MessageEmbed()
         .setAuthor('Meow!')
-        .setImage(res.body.url)
+        .setImage(res.url)
         .setColor('RANDOM')
         .setFooter('Powered by nekos.life')
         return message.embed(embed);

@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
 
 module.exports = class PatCommand extends Command {
     constructor(client) {
@@ -23,18 +22,19 @@ module.exports = class PatCommand extends Command {
     }
 
     async run(message, { user }) {
-        const res = await get('https://nekos.life/api/v2/img/pat');
+        const res = await this.client.neko.sfw.pat();
+        
         if(!user) {
             const lonelyEmbed = new MessageEmbed()
             .setAuthor('Pat pat!')
-            .setImage(res.body.url)
+            .setImage(res.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(lonelyEmbed);
         } else {
             const embed = new MessageEmbed()
             .setAuthor(`${user.tag} just got a pat from ${message.author.tag}`)
-            .setImage(res.body.url)
+            .setImage(res.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(embed);

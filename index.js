@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const { CommandoClient } = require('discord.js-commando');
 const { prefix, ownerId } = require('./config.json');
+const NekoClient = require('nekos.life');
 
 const path = require('path');
 const fs = require('fs');
@@ -31,6 +32,8 @@ client.registry
         ['miscellaneous', 'Miscellaneous Commands']
     ])
     .registerCommandsIn(path.join(__dirname, 'commands'));
+
+client.neko = new NekoClient();
 
 fs.readdir('./events/', (error, files) => {
     if(error) console.log(`[ERROR] => ${error}`);

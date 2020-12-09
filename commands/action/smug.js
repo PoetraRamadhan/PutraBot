@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
 
 module.exports = class SmugCommand extends Command {
     constructor(client) {
@@ -15,11 +14,11 @@ module.exports = class SmugCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/img/smug');
+        const res = await this.client.neko.sfw.smug();
 
         const embed = new MessageEmbed()
         .setAuthor('Smugged')
-        .setImage(res.body.url)
+        .setImage(res.url)
         .setColor('RANDOM')
         .setFooter('Powered by nekos.life')
         return message.embed(embed)

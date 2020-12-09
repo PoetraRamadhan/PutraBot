@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
 
 module.exports = class HugCommand extends Command {
     constructor(client) {
@@ -23,18 +22,19 @@ module.exports = class HugCommand extends Command {
     }
 
     async run(message, { user }) {
-        const res = await get('https://nekos.life/api/hug');
+        const res = await this.client.neko.sfw.hug();
+        
         if(!user) {
             const lonelyEmbed = new MessageEmbed()
             .setAuthor('There there, let me hug you pal!')
-            .setImage(res.body.url)
+            .setImage(res.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(lonelyEmbed);
         } else {
             const embed = new MessageEmbed()
             .setAuthor(`${message.author.tag} just hugged ${user.tag} awwww!`)
-            .setImage(res.body.url)
+            .setImage(res.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(embed);

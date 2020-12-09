@@ -23,18 +23,19 @@ module.exports = class TickleCommand extends Command {
     }
 
     async run(message, { user }) {
-        const res = await get('https://nekos.life/api/v2/img/tickle');
+        const res = await this.client.neko.sfw.tickle()
+
         if(!user) {
            const lonelyEmbed = new MessageEmbed()
            .setAuthor('Tickle, tickle!')
-           .setImage(res.body.url)
+           .setImage(res.url)
            .setColor('RANDOM')
            .setFooter('Powered by nekos.life')
            return message.embed(lonelyEmbed);
         } else {
             const embed = new MessageEmbed()
             .setAuthor(`${user.tag} just got tickled by ${message.author.tag}`)
-            .setImage(res.body.url)
+            .setImage(res.url)
             .setColor('RANDOM')
             .setFooter('Powered by nekos.life')
             return message.embed(embed);

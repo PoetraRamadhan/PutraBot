@@ -13,7 +13,7 @@ module.exports = class FactCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/fact');
-        message.say(`Fact: \`${res.body.fact}\``);
+        const res = await this.client.neko.sfw.fact();
+        message.say(`Fact: \`${res.fact}\``);
     }
 }

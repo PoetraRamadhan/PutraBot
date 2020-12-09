@@ -14,9 +14,10 @@ module.exports = class LizardCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/img/lizard');
+        const res = await this.client.neko.sfw.lizard();
+        
         const embed = new MessageEmbed()
-        .setImage(res.body.url)
+        .setImage(res.url)
         .setColor('RANDOM')
         .setFooter('Powered by nekos.life')
         return message.embed(embed);

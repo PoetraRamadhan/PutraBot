@@ -13,7 +13,7 @@ module.exports = class WhyCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/why');
-        message.say(`\`${res.body.why}\``);
+        const res = await this.client.neko.sfw.why();
+        message.say(`\`${res.why}\``);
     }
 }

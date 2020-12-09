@@ -14,10 +14,11 @@ module.exports = class GooseCommand extends Command {
     }
 
     async run(message) {
-        const res = await get('https://nekos.life/api/v2/img/goose');
+        const res = await this.client.neko.sfw.goose();
+        
         const embed = new MessageEmbed()
         .setAuthor('Honk honk!')
-        .setImage(res.body.url)
+        .setImage(res.url)
         .setColor('RANDOM')
         .setFooter('Powered by nekos.life')
         return message.embed(embed);
