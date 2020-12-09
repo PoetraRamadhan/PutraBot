@@ -17,7 +17,11 @@ module.exports = class OwoifyCommand extends Command {
                     min: 1,
                     max: 200
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

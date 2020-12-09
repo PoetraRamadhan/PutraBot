@@ -17,7 +17,11 @@ module.exports = class PatCommand extends Command {
                     type: 'user',
                     default: ''
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

@@ -17,7 +17,11 @@ module.exports = class EightballCommand extends Command {
                     prompt: 'What do you want to ask the ball?',
                     type: 'string'
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

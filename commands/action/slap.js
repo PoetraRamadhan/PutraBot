@@ -16,7 +16,11 @@ module.exports = class SlapCommand extends Command {
                     type: 'user',
                     default: ''
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
     

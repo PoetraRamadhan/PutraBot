@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
+
 
 module.exports = class TickleCommand extends Command {
     constructor(client) {
@@ -18,7 +18,11 @@ module.exports = class TickleCommand extends Command {
                     type: 'user',
                     default: ''
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

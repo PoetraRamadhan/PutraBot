@@ -9,6 +9,10 @@ module.exports = class CatCommand extends Command {
             group: 'image',
             description: 'Meoww!!',
             guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

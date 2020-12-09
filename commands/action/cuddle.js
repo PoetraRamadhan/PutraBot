@@ -16,7 +16,11 @@ module.exports = class CuddleCommand extends Command {
                     type: 'user',
                     default: ''
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

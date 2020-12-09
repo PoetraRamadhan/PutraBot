@@ -9,7 +9,11 @@ module.exports = class SmugCommand extends Command {
             group: 'action',
             description: 'Show them the smug face!',
             examples: ['smug'],
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

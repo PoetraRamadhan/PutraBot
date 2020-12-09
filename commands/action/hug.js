@@ -17,7 +17,11 @@ module.exports = class HugCommand extends Command {
                     type: 'user',
                     default: ''
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

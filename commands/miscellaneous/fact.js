@@ -1,5 +1,4 @@
 const { Command } = require('discord.js-commando');
-const { get } = require('superagent');
 
 module.exports = class FactCommand extends Command {
     constructor(client) {
@@ -8,7 +7,11 @@ module.exports = class FactCommand extends Command {
             memberName: 'fact',
             group: 'miscellaneous',
             description: 'Its just fact bro!',
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

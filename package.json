@@ -23,12 +23,14 @@
   },
   "homepage": "https://github.com/PoetraRamadhan/PutraBot#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "discord.js": "^12.5.1",
     "discord.js-commando": "github:discordjs/Commando",
     "dotenv": "^8.2.0",
     "nekos.life": "^2.0.7",
     "pretty-ms": "^7.0.1",
     "quotesy": "^1.0.5",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "vacefron": "^2.0.3"
   }
 }

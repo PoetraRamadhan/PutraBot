@@ -8,7 +8,11 @@ module.exports = class NameCommand extends Command {
             memberName: 'name',
             group: 'miscellaneous',
             description: 'Sends you a random name',
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

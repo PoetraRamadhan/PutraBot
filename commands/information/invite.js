@@ -8,6 +8,11 @@ module.exports = class InviteCommand extends Command {
             memberName: 'invite',
             group: 'information',
             description: 'Sends you the invite link of this bot',
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

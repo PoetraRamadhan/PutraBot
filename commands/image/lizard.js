@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando');
 const { MessageEmbed } = require('discord.js');
-const { get } = require('superagent');
 
 module.exports = class LizardCommand extends Command {
     constructor(client) {
@@ -9,7 +8,11 @@ module.exports = class LizardCommand extends Command {
             memberName: 'lizard',
             group: 'image',
             description: 'Lizardooo',
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

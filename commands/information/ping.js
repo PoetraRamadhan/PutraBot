@@ -8,6 +8,10 @@ module.exports = class PingCommand extends Command {
             group: 'information',
             description: 'Pings the bot and sends the result',
             guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

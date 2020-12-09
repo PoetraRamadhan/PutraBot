@@ -8,7 +8,11 @@ module.exports = class QuotesCommand extends Command {
             memberName: 'quotes',
             group: 'miscellaneous',
             description: 'Send a quote to start your adventure!',
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

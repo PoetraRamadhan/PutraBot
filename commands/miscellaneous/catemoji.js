@@ -8,7 +8,11 @@ module.exports = class CatemojiCommand extends Command {
             group: 'miscellaneous',
             description: 'Sends a cat emoji',
             aliases: ['cat-emoji'],
-            guildOnly: true
+            guildOnly: true,
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 

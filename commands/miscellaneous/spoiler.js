@@ -17,7 +17,11 @@ module.exports = class SpoilerCommand extends Command {
                     min: 1,
                     max: 1000
                 }
-            ]
+            ],
+            throttling: {
+                duration: 3,
+                usages: 1
+            }
         });
     }
 
