@@ -33,6 +33,7 @@ module.exports = class HelpCommand extends Command {
                 const listEmbed = new MessageEmbed()
                 .setDescription(`${groups.filter((grp) => grp.commands.some((cmd) => !cmd.hidden && cmd.isUsable(message))).map((grp) => `**${grp.name}**\n${grp.commands.filter((cmd) => !cmd.hidden && cmd.isUsable(message)).map((cmd) => `\`${cmd.name}\``).join(', ')}`).join('\n\n')}`)
                 .setColor('RANDOM')
+                .setFooter('<> - Required | [] - Optional')
                 return message.embed(listEmbed)
             } catch (error) {
                 message.say('Something went wrong while trying to show the command list...').then(err => console.error(`[FAILED] => ${err}`));
@@ -86,6 +87,7 @@ module.exports = class HelpCommand extends Command {
                 }
             )
             .setColor('RANDOM')
+            .setFooter('<> - Required | [] - Optional')
             return message.embed(commandEmbed);
         }
     }
